@@ -74,19 +74,23 @@ export default {
         const BASE_URL = (process.env.NODE_ENV !== 'development' )
         ? '/data/toy'
         : '//localhost:3000/data/toy' ;
-      */
-    const BASE_URL = (process.env.NODE_ENV == "development") ? '' : 'http://localhost:8000';
-    console.log(BASE_URL)
 
+
+        to be copied: const BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '' : '';
+      */
+    
     //listens to mew jobs that are being added to DB
     bus.$on("jobAddedToDB", () => {
-      axios.get("http://localhost:8000/jobs").then(res => {
+      const BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs';
+      axios.get(`${BASE_URL}`).then(res => {
+        
         this.jobs = res.data;
       });
     });
     //gets jobs from DB
-
-    axios.get("http://localhost:8000/jobs").then(res => {
+    const BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs';
+    axios.get(`${BASE_URL}`).then(res => {
+      
       this.jobs = res.data;
     });
   }

@@ -120,8 +120,9 @@ export default {
     deleteApplicant(applicantId, employerId) {},
     deleteJob(jobId, employerId) {
       //delete the job from DB
+      var BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs';
       axios
-        .delete(`http://localhost:8000/jobs?id=${jobId}`)
+        .delete(`${BASE_URL}?id=${jobId}`)
         .then(res => {})
         .catch(err => {});
 
@@ -137,11 +138,12 @@ export default {
       currEmployer.offeredJobs.splice(idx, 1);
 
       //updating Employer in the DB, with one job less (by deleting and posting a new one)
+      BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/employers' : 'http://localhost:8000/employers';
       axios
-        .delete(`http://localhost:8000/employers?id=${employerId}`)
+        .delete(`${BASE_URL}?id=${employerId}`)
         .then(() => {
           axios
-            .post("http://localhost:8000/employers", currEmployer)
+            .post(`${BASE_URL}`, currEmployer)
             .then(res => {
               this.updateLoggedInProfileData(res.data);
             })
@@ -174,8 +176,9 @@ export default {
         };
 
         //post new Job
+        var BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs';
         axios
-          .post("http://localhost:8000/jobs", this.newJob)
+          .post(`${BASE_URL}`, this.newJob)
           .then(res => {
             //renders the new job right away to the home page
             bus.$emit("jobAddedToDB");
@@ -200,7 +203,8 @@ export default {
         newEmployer.offeredJobs.push(this.newJob);
       }
       //post new Employer
-      axios.post("http://localhost:8000/employers", newEmployer).then(res => {
+      BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/employers' : 'http://localhost:8000/employers';
+      axios.post(`${BASE_URL}`, newEmployer).then(res => {
         this.updateLoggedInProfileData(res.data);
       });
       //handle Navbar: Logout button, Hello + userName(through updating loggeIn status)
@@ -222,8 +226,9 @@ export default {
         };
 
         //post request to the server to add job the jobs DB
+        var BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs'; 
         axios
-          .post("http://localhost:8000/jobs", this.newJob)
+          .post(`${BASE_URL}`, this.newJob)
           .then(res => {})
           .catch(err => {});
       }
@@ -246,13 +251,14 @@ export default {
 
       //request to the server - to delete and post Employer profile
       var id = this.loggedInProfileDataQuery.id;
+      BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/employers' : 'http://localhost:8000/employers';
       axios
-        .delete(`http://localhost:8000/employers?id=${id}`)
+        .delete(`${BASE_URL}?id=${id}`)
         .then()
         .catch();
 
       axios
-        .post(`http://localhost:8000/employers`, profileData)
+        .post(`${BASE_URL}`, profileData)
         .then(res => {
           this.updateLoggedInProfileData(res.data);
         })

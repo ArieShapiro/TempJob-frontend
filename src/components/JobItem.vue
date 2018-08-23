@@ -65,8 +65,9 @@ export default {
       //create an object with the details of the employer that owns this job
       //(get employers request, find job owner, update his profile by deleting and posting new)
       var profileData;
+      const BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/employers' : 'http://localhost:8000/employers'
       axios
-        .get("http://localhost:8000/employers")
+        .get(`${BASE_URL}`)
         .then(res => {
           res.data.forEach(employer => {
             employer.offeredJobs.forEach(job => {
@@ -80,11 +81,11 @@ export default {
                 profileData.id = this._makeId();
 
                 axios
-                  .post(`http://localhost:8000/employers`, profileData)
+                  .post(`${BASE_URL}`, profileData)
                   .then(res => {
                     var id = employer.id;
                     axios
-                      .delete(`http://localhost:8000/employers?id=${id}`)
+                      .delete(`${BASE_URL}?id=${id}`)
                       .then()
                       .catch();
                   })

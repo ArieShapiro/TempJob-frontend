@@ -29,7 +29,8 @@ export default {
       this.$store.commit({ type: "updateLoggenInStatus", newLoggedIn });
     },
     login() {
-      axios.get("http://localhost:8000/employers").then(res => {
+      const BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/employers' : 'http://localhost:8000/employers';
+      axios.get(`${BASE_URL}`).then(res => {
         var userFound = null;
         var userName = null;
         res.data.forEach(user => {

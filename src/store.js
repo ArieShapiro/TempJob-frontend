@@ -85,17 +85,7 @@ export default new Vuex.Store({
     */
   },
   actions: {
-    /*
-    loadJobsFromDB: context => {
-      console.log('sending request...')
-      axios.get('http://localhost:4000/jobs').then(res => {
-        console.log(res)
-        return res;
-      }).catch(err => {
-        console.log(err)
-      })
-    }*/
-  },
+      },
   created() {
     //console.log('Store is created!!!')
   },

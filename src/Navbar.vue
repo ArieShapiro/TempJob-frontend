@@ -18,7 +18,6 @@
 
 <script>
 import { bus } from "./main.js";
-import axios from "axios";
 
 export default {
   data() {
