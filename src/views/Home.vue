@@ -1,18 +1,49 @@
 <template>
-  <div class="home">
-    <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section class="home">
+    <Filtering class="filtering"></Filtering>
+    <RenderedJobs></RenderedJobs>
+        
+  </section>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Filtering from "../components/Filtering.vue";
+import RenderedJobs from "../components/RenderedJobs.vue";
+
 
 export default {
-  name: 'home',
+  name: "home",
   components: {
-    HelloWorld
+    Filtering,
+    RenderedJobs,
+    
+  },
+  created(){
+    
   }
-}
+};
 </script>
+
+<style>
+
+.items-title {
+  text-shadow: 2px 2px #1b8a2b;
+}
+body {
+  
+  color: #37133b;
+}
+* {
+  font-family: Nunito,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin: 0;
+  text-decoration: none;
+  color: black;  
+}
+h1{
+  text-align: center;
+}
+
+
+</style>
+
