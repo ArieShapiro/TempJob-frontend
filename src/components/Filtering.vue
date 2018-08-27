@@ -29,16 +29,12 @@ export default {
       bus.$emit("searchInputChanged", this.searchInput);
     },
     filterByLocation: function() {
-      bus.$emit('searchByLocationLunched', this.locationInput );
+      bus.$emit("searchByLocationLunched", this.locationInput);
     }
   },
-  computed: {
-    
-  },
+  computed: {},
   watch: {
-    searchInput: function() {
-      
-    }
+    searchInput: function() {}
   }
 };
 </script>
@@ -49,6 +45,7 @@ h1 {
   margin: 10px;
 }
 .filter-conteiner {
+  
   margin: 20px auto;
   height: auto;
   display: flex;
@@ -85,8 +82,8 @@ h1 {
   background-color: #94f080;
 }
 .search {
+  
   border: 1px solid gray;
-  max-width: 365px;
   padding: 10px;
 }
 .search i {
@@ -108,6 +105,24 @@ input:focus {
 
 .search-field-button {
   display: flex;
+}
+
+/* Media Queries  */
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .search-field-button {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .search input {
+    font-size: 10px;
+    width: 155px;
+        
+  }
 }
 </style>
 

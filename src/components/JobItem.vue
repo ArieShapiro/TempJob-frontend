@@ -1,10 +1,10 @@
 <template>
     <section class="rendered-job">
         <div v-if="job" @click="descriptionToggle">
-            <div><h1>{{ job.title }}</h1></div>
+            <div><h1 class="job-title">{{ job.title }}</h1></div>
             <div class="company-location">
-                <div><h2>{{ job.company }}  - </h2></div>
-                <div><h2 class="loc">{{ job.location }}</h2></div>
+                <div><h2>{{ job.company }}  <span>-</span> </h2></div>
+                <div><h2 class="job-loc">{{ job.location }}</h2></div>
             </div>
             <div>{{ job.createdAt }}</div>
             <div v-if="isOpen">
@@ -65,7 +65,10 @@ export default {
       //create an object with the details of the employer that owns this job
       //(get employers request, find job owner, update his profile by deleting and posting new)
       var profileData;
-      const BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/employers' : 'http://localhost:8000/employers'
+      const BASE_URL =
+        process.env.NODE_ENV !== "development"
+          ? "/employers"
+          : "http://localhost:8000/employers";
       axios
         .get(`${BASE_URL}`)
         .then(res => {
@@ -154,7 +157,7 @@ export default {
   justify-content: center;
   font-size: 0.8em;
 }
-.loc {
+.job-loc {
   font-weight: normal;
   color: #7f7f7f;
 }
@@ -178,6 +181,37 @@ export default {
 input.about-yourself {
   width: 400px;
   height: 100px;
+}
+
+/* Media Queries  */
+
+@media (max-width: 600px) {
+  .job-title {
+    font-size: 20px;
+  }
+  .company-location h2 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 440px) {
+  .company-location span {
+    display: none;
+  }
+  .company-location {
+    flex-direction: column;
+  }
+  .description {
+    font-size: 10px;
+  }
+}
+@media (max-width: 415px) {
+  .job-title {
+    font-size: 15px;
+  }
+  .company-location h2 {
+    font-size: 10px;
+  }
 }
 </style>
 

@@ -98,6 +98,9 @@ export default {
 </script>
 
 <style scoped>
+ul {
+    padding: 50px;
+}
 li {
   list-style-type: none;
   margin: 20px auto;
@@ -106,6 +109,12 @@ li {
   padding: 5px;
   display: flex;
   justify-content: space-around;
+}
+
+@media (max-width: 500px){
+  ul{
+    padding: 0 50px;
+  }
 }
 </style>
 
