@@ -1,5 +1,6 @@
 <template>
     <section>
+      <div v-if="throbber" class="throbber"><i class="fa fa-refresh fa-spin"></i></div>
         <ul>
             <li v-for="(job,idx) in displayFilteredJobs" :key="idx">
                 <JobItem :job="job"></JobItem>
@@ -21,7 +22,8 @@ export default {
     return {
       jobs: [],
       jobsToDisplay: "",
-      locationToDisplay: ""
+      locationToDisplay: "",
+      throbber: true
     };
   },
   methods: {},
@@ -70,27 +72,24 @@ export default {
       this.locationToDisplay = "";
     });
 
-    /*
-        const BASE_URL = (process.env.NODE_ENV !== 'development' )
-        ? '/data/toy'
-        : '//localhost:3000/data/toy' ;
-
-
-        to be copied: const BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '' : '';
-      */
-    
     //listens to mew jobs that are being added to DB
     bus.$on("jobAddedToDB", () => {
-      const BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs';
+      const BASE_URL =
+        process.env.NODE_ENV !== "development"
+          ? "/jobs"
+          : "http://localhost:8000/jobs";
       axios.get(`${BASE_URL}`).then(res => {
-        
         this.jobs = res.data;
       });
     });
     //gets jobs from DB
-    const BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs';
+
+    const BASE_URL =
+      process.env.NODE_ENV !== "development"
+        ? "/jobs"
+        : "http://localhost:8000/jobs";
     axios.get(`${BASE_URL}`).then(res => {
-      
+      this.throbber = false;
       this.jobs = res.data;
     });
   }
@@ -99,7 +98,7 @@ export default {
 
 <style scoped>
 ul {
-    padding: 50px;
+  padding: 50px;
 }
 li {
   list-style-type: none;
@@ -110,9 +109,18 @@ li {
   display: flex;
   justify-content: space-around;
 }
+.fa-refresh:before {
+    content: "\f021";
+    color: #0caa41;
+}
+.throbber{
+  font-size: 4em;
+  text-align: center;
+}
 
-@media (max-width: 500px){
-  ul{
+
+@media (max-width: 500px) {
+  ul {
     padding: 0 50px;
   }
 }

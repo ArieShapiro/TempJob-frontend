@@ -1,8 +1,7 @@
 <template>
   <section class="home">
     <Filtering class="filtering"></Filtering>
-    <RenderedJobs></RenderedJobs>
-        
+    <RenderedJobs></RenderedJobs>        
   </section>
 </template>
 
