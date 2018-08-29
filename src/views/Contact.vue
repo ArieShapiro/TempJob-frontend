@@ -19,7 +19,6 @@
       </div>
     </div> 
     <div class="contact-form">
-        <h5></h5>
         <input class="name-input" type="text" placeholder="Name">
         <input class="email-input" type="email" placeholder="Email">
         <input class="message-input" type="text" placeholder="Message">  
@@ -31,7 +30,7 @@
 <style scoped>
 h1 {
   text-align: center;
-  margin: 50px;
+  margin: 40px 0 5px;
   color: #0caa41;
 }
 .contact-icons {

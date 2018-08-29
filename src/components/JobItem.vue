@@ -9,6 +9,7 @@
             <div>{{ job.createdAt }}</div>
             <div v-if="isOpen">
                 <div class="description">{{ job.description}}</div>
+                <h3 v-if="isApplicationFormOpened" class="fill-in">Fill in your details to apply:</h3>
                 <div v-if="isApplicationFormOpened" class="application-form">
                     <input v-model="applicationFullName" type="text" @click="stopPropo" placeholder="Your full name">
                     <input v-model="applicationEmail" type="text" @click="stopPropo" placeholder="Your email">
@@ -196,10 +197,19 @@ input.about-yourself {
     width: 100%;
     height: 35px;
   }
+  .fill-in {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  .rendered-job button {
+    width: 100%;
+    height: 35px;
+    margin: 5px 0px;
+  }
 
-
-
-
+  input.about-yourself {
+    width: auto;
+  }
 }
 
 @media (max-width: 440px) {
@@ -213,13 +223,39 @@ input.about-yourself {
     font-size: 10px;
   }
 }
-@media (max-width: 415px) {
+@media (max-width: 430px) {
   .job-title {
     font-size: 15px;
   }
   .company-location h2 {
     font-size: 10px;
   }
+  .application-form input {
+    margin: 10px auto;
+    height: 30px;
+    min-width: 0;
+    width: 200px !important;
+}
+
+  .rendered-job button {
+    width: 95%;
+    height: 35px;
+    margin: 5px 0px;
+    margin-left: 5px;
+}
+  .fill-in {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  
+
+  input.about-yourself {
+    width: auto;
+    height: 150px;
+}
+  .rendered-job div {
+    margin: 0;
+}
 }
 </style>
 
