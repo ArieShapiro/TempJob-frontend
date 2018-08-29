@@ -66,6 +66,9 @@ export default {
   flex-direction: column;
   padding: 20px;
 }
+.sign-up-form small{
+  font-size: 5px;
+}
 .sign-up-form input {
   margin: 10px;
   height: 35px;

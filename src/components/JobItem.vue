@@ -90,7 +90,9 @@ export default {
                     var id = employer.id;
                     axios
                       .delete(`${BASE_URL}?id=${id}`)
-                      .then()
+                      .then(()=>{
+                        swal("Your application for this job was submitted successfuly!", "", "success");
+                      })
                       .catch();
                   })
                   .catch();
@@ -130,6 +132,9 @@ export default {
 </script>
 
 <style>
+body {
+  font-variant: small-caps;
+}
 .rendered-job {
   width: 100%;
   text-align: center;
@@ -137,6 +142,7 @@ export default {
 .description {
   text-align: justify;
   height: auto;
+  text-indent: 20px;
 }
 .rendered-job button {
   margin-top: 15px;

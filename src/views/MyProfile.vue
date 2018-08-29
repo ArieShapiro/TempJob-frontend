@@ -120,44 +120,60 @@ export default {
   },
   methods: {
     deleteApplicant(applicantId, employerId) {},
+
     deleteJob(jobId, employerId) {
-      //delete the job from DB
-      var BASE_URL =
-        process.env.NODE_ENV !== "development"
-          ? "/jobs"
-          : "http://localhost:8000/jobs";
-      axios
-        .delete(`${BASE_URL}?id=${jobId}`)
-        .then(res => {})
-        .catch(err => {});
-
-      //configure new offeredJobs array for this Employer
-      var currEmployer = JSON.parse(
-        JSON.stringify(this.loggedInProfileDataQuery)
-      );
-      var idx;
-      currEmployer.offeredJobs.forEach(job => {
-        if (job.id === jobId) idx = currEmployer.offeredJobs.indexOf(job);
-      });
-
-      currEmployer.offeredJobs.splice(idx, 1);
-
-      //updating Employer in the DB, with one job less (by deleting and posting a new one)
-      BASE_URL =
-        process.env.NODE_ENV !== "development"
-          ? "/employers"
-          : "http://localhost:8000/employers";
-      axios
-        .delete(`${BASE_URL}?id=${employerId}`)
-        .then(() => {
+      swal({
+        title: "Are you sure you want to delete this job?",
+        text: "Once deleted, you will not be able to recover this!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+      }).then(willDelete => {
+        if (willDelete) {
+          //delete the job from DB
+          var BASE_URL =
+            process.env.NODE_ENV !== "development"
+              ? "/jobs"
+              : "http://localhost:8000/jobs";
           axios
-            .post(`${BASE_URL}`, currEmployer)
-            .then(res => {
-              this.updateLoggedInProfileData(res.data);
+            .delete(`${BASE_URL}?id=${jobId}`)
+            .then(res => {})
+            .catch(err => {});
+
+          //configure new offeredJobs array for this Employer
+          var currEmployer = JSON.parse(
+            JSON.stringify(this.loggedInProfileDataQuery)
+          );
+          var idx;
+          currEmployer.offeredJobs.forEach(job => {
+            if (job.id === jobId) idx = currEmployer.offeredJobs.indexOf(job);
+          });
+
+          currEmployer.offeredJobs.splice(idx, 1);
+
+          //updating Employer in the DB, with one job less (by deleting and posting a new one)
+          BASE_URL =
+            process.env.NODE_ENV !== "development"
+              ? "/employers"
+              : "http://localhost:8000/employers";
+          axios
+            .delete(`${BASE_URL}?id=${employerId}`)
+            .then(() => {
+              axios
+                .post(`${BASE_URL}`, currEmployer)
+                .then(res => {
+                  this.updateLoggedInProfileData(res.data);
+                  swal("Poof! Your job has been deleted!", {
+                    icon: "success"
+                  });
+                })
+                .catch(err => {});
             })
             .catch(err => {});
-        })
-        .catch(err => {});
+        } else {
+          swal("Your job is safe!");
+        }
+      });
     },
 
     editClicked() {
@@ -345,6 +361,10 @@ export default {
 </script>
 
 <style>
+.edit-form p {
+  text-indent: 10px;
+  text-align: justify;
+}
 li {
   list-style-type: none;
 }
@@ -484,7 +504,7 @@ li {
   display: flex;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .edit-form {
     margin: 10%;
   }
@@ -504,7 +524,8 @@ li {
     width: 100%;
     margin: auto;
   }
-  .edit-btn, .del-btn {
+  .edit-btn,
+  .del-btn {
     width: 100%;
     height: 30px;
   }
@@ -523,7 +544,8 @@ li {
   .my-jobs h4 {
     text-align: center;
   }
-  .my-jobs p, h4 {
+  .my-jobs p,
+  h4 {
     text-align: justify;
     text-align-last: center;
     margin-bottom: 10px;
@@ -531,11 +553,12 @@ li {
   .my-jobs button {
     width: 100%;
   }
-  .my-applicants ul, .my-jobs ul{
+  .my-applicants ul,
+  .my-jobs ul {
     padding: 0;
     margin: 20px;
   }
-  .my-applicants .del-btn{
+  .my-applicants .del-btn {
     height: 30px;
   }
 }

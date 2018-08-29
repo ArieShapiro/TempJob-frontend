@@ -40,6 +40,7 @@
 }
 .about {
   text-align: center;
+  text-indent: 10px;
 }
 .about-content {
   margin: 0 20%;

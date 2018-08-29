@@ -36,6 +36,7 @@
 
 <script>
 import { bus } from "./main.js";
+import swal from "sweetalert";
 
 export default {
   data() {
@@ -57,6 +58,10 @@ export default {
       this.$router.push("/my-profile");
     },
     logout() {
+      swal("Bye, until next time :)", {
+        buttons: false,
+        timer: 4000
+      });
       this.updateLoggenInStatus("");
       this.updateLoggedInProfileData("");
       this.$router.push("/");
@@ -198,16 +203,30 @@ export default {
   margin-right: 5px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .navbar {
     display: none;
   }
   .burger-nav {
     display: block;
   }
-  .hellow-user-mobile, .logout-mobile{
+  .hellow-user-mobile,
+  .logout-mobile {
     margin: 18px 0px;
   }
-  
+  .hellow-user-mobile:hover {
+    color: #0caa41;
+    cursor: pointer;
+  }
+  .logout-mobile:hover {
+    color: #0caa41;
+    cursor: pointer;
+  }
+  .hellow-user-mobile:active {
+    color: #0caa41;
+  }
+  .logout-mobile:active {
+    color: #0caa41;
+  }
 }
 </style>
