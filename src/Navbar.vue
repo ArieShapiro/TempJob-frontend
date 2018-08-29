@@ -6,7 +6,7 @@
         <i class="fas fa-bars hamburger" @click="openBurgerBar"></i>
         <div v-if="loggedInStatusQuery" @click="viewProfile" class="hellow-user-mobile">Hello {{ loggedInProfileDataQuery.name }}!</div>
         <div v-if="loggedInStatusQuery" @click="logout" class="logout-mobile"><i class="fas fa-power-off po"></i>Logout</div>
-        <i class="fas fa-briefcase" style="margin-top: 5px" @click="goHome"></i>
+        <i class="fas fa-briefcase" style="margin-top: 8px; font-size: 1.5em" @click="goHome"></i>
       </div>
       <div class="responsive-bar-container opened">
         <router-link to="/"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">Home</div></router-link>
@@ -96,14 +96,14 @@ export default {
 <style>
 .burger-nav {
   display: none;
-  height: 40px;
+  height: 55px;
   width: 100%;
   background-color: #404040;
 }
 .hamburger {
   color: whitesmoke;
   margin: 8px;
-  font-size: 150%;
+  font-size: 210%;
   cursor: pointer;
 }
 .burger-and-logo {
@@ -205,5 +205,9 @@ export default {
   .burger-nav {
     display: block;
   }
+  .hellow-user-mobile, .logout-mobile{
+    margin: 18px 0px;
+  }
+  
 }
 </style>

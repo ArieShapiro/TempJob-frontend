@@ -14,7 +14,7 @@
                     <input v-model="applicationEmail" type="text" @click="stopPropo" placeholder="Your email">
                     <input v-model="aboutYourself" class="about-yourself" type="text" @click="stopPropo" placeholder="About youself, your experience, relavant links...">
                     <button class="upload-cv-btn" @click="uploadCV">Upload your CV<i class="fas fa-file-upload cv-icon"></i></button>  
-                    <button @click="submitApplication">Submit Application</button>
+                    <button @click="submitApplication" class="apply-btn">Submit Application</button>
                 </div>
                 <button v-if="!isApplicationFormOpened" @click="apply">Apply</button>
             </div>
@@ -192,6 +192,14 @@ input.about-yourself {
   .company-location h2 {
     font-size: 15px;
   }
+  .rendered-job button {
+    width: 100%;
+    height: 35px;
+  }
+
+
+
+
 }
 
 @media (max-width: 440px) {

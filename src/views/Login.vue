@@ -104,6 +104,12 @@ export default {
 .access-denied {
   color: red;
 }
+
+@media (max-width: 500px){
+  .login-form{
+    margin: 10%;
+  }
+}
 </style>
 
 

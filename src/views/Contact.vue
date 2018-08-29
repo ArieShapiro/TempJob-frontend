@@ -4,8 +4,8 @@
     <div class="contact-icons">
       <div class="phone">
         <i class="fas fa-mobile-alt i"></i>
-        <h5>Call us at</h5>
-        <h5>053-529-4075</h5>
+        <h5>Call us at
+        053-529-4075</h5>
       </div>
       <div class="adress">
         <i class="fas fa-map-marker-alt i"></i>
@@ -32,6 +32,7 @@
 h1 {
   text-align: center;
   margin: 50px;
+  color: #0caa41;
 }
 .contact-icons {
   display: flex;
@@ -39,6 +40,9 @@ h1 {
 }
 .contact-icons div {
   margin: 20px;
+}
+.contact-icons h5 {
+  color: #0caa41;
 }
 .i {
   font-size: xx-large;
@@ -51,6 +55,24 @@ h1 {
   align-items: center;
   margin: 40px !important;
 }
+.phone i {
+  color: teal;
+}
+.phone i:hover{
+  color: #18b3b3;
+}
+.adress i {
+  color: #ea4335;
+}
+.adress i:hover{
+  color:#eaa099;
+}
+.email i {
+  color: #234eb4;
+}
+.email i:hover{
+  color:#7d94cb;
+}
 .contact-form {
   margin: 40px auto;
   max-width: 350px;
@@ -59,7 +81,7 @@ h1 {
   display: flex;
   flex-direction: column;
   padding: 20px;
-      margin-bottom: 200px;
+  margin-bottom: 200px;
 }
 .contact-form input {
   margin: 10px;
@@ -88,6 +110,19 @@ h1 {
 }
 .contact-form .message-input {
   height: 100px;
+}
+
+@media (max-width: 700px) {
+  .contact-icons h5 {
+    display: none;
+  }
+  .contact-icons {
+    display: flex;
+    justify-content: center;
+  }
+  .contact-form{
+    margin: 0 10% 30%;
+  }
 }
 </style>
 

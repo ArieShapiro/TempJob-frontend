@@ -1,52 +1,53 @@
 <template>
   <div class="about">
-    <h1 class="about-us-title">About Us</h1>
-    <pre class="about-text">  
-      What is jobactive?
-jobactive is the Australian Government’s way to get more Australians into work.
- It connects job seekers with employers and is delivered by a network of jobactive
-  providers in over 1,700 locations across Australia.
-The jobactive website is delivered by Australian JobSearch — a free online jobs website.
+    <h1 class="about-us-title">About TempJob</h1>
+    <p class="about-content">
+      TempJob is possibly the #1 job site in the world with  unique 
+      visitors. TempJob strives to put job seekers first, giving 
+      them free access to search for jobs, post resumes, and research companies. 
+      Every day, we connect people to new opportunities.</p>
+      <p class="about-content" style="margin-top: 20px">Contacting as many people as possible is a highly 
+        effective way to find a job. It is estimated that 50% or higher of all jobs are found through 
+        networking.
 
-For job seekers:
-The jobactive website is the ideal place to:
-look for jobs
-apply for jobs
-search for apprenticeships and traineeships
-find your local employment services provider
-The jobactive website gives job seekers the tools to take control of their job search including
-a personalised Job Seeker Dashboard and a Job Matching section.
+       Job recruiters and decision makers are increasingly using online social networking sites to 
+       gather information about job applicants, according to a mid-2011 Jobvite survey of 800 employers
+        in the US.
 
-For employers:
-The jobactive website has a number of features to help employers find the right person for
- their job. Employers can:
-advertise at no cost
-advertise without approval delays with Auto Activation of vacancies
-search for candidates based on criteria in their advertisement using our Find Candidates functionality
-achieve high visibility for their jobs - with thousands of people visiting JobSearch each month
-access a personalised Employer Dashboard which houses key information to assist with the
- search for potential candidates. The Dashboard feature enables employers to track
-  all job vacancies and application traffic in one central location.
-    </pre>
+       Likewise, job seekers are beginning to use social networking sites to advertise their skills 
+       and post resumes. Today, job seekers can use resources such as Google+’s Circles, Facebook’s 
+       BranchOut, LinkedIn’s InMaps, and Twitter’s Lists to make employers notice them in a unique way.
+        In 2014, using these social media networks has led to 1 of 6 job seekers finding employment.
+
+       Job seekers need to begin to pay more attention to what employers and recruiters find when they 
+       do their pre-interview information gathering about applicants, according to this 2010 study by
+        Microsoft, "Online Reputation in a Connected World".</p>
+
+                                 <h2>Our People</h2>
+      <p class="about-content">At TempJob, our mission is to help people get jobs. We have more than ever 
+      global employees passionately pursuing this purpose and improving the 
+      recruitment journey through real stories and data. We foster a collaborative 
+      workplace that strives to create the best experience for job seekers.
+    </p>
+    
   </div>
 </template>
 
 <style local>
 .about-us-title {
   margin: 50px;
+  color: #0caa41;
 }
 .about {
   text-align: center;
 }
-.about-text {
-  text-align: left;
-  margin-left: 350px;
-  margin-bottom: 150px;
-}
-h3 {
-  margin: 0 300px;
+.about-content {
+  margin: 0 20%;
   text-align: justify;
-  font-weight: normal;
+}
+.about h2 {
+  margin: 5%;
+  color: #0fab44;
 }
 </style>
 

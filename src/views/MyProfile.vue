@@ -52,9 +52,10 @@
                 <h3>My Jobs:</h3>
                 <ul v-if="loggedInProfileDataQuery.offeredJobs">
                     <li v-for="(job, idx) in loggedInProfileDataQuery.offeredJobs" :key="idx">
-                        <h4>{{job.title}}<button class="del-btn" @click="deleteJob(job.id, loggedInProfileDataQuery.id)"><i class="fas fa-trash-alt"></i></button></h4>
-                        <p> {{job.company}}</p>
-                        <p> {{job.location}}</p>
+                        <h4>{{job.title}}</h4>
+                        <button class="del-btn" @click="deleteJob(job.id, loggedInProfileDataQuery.id)"><i class="fas fa-trash-alt"></i></button>
+                        <h4> {{job.company}}</h4>
+                        <h4> {{job.location}}</h4>
                         <p> {{job.description}}</p>
                     </li>
                 </ul>
@@ -63,8 +64,9 @@
                   <h3>Applications for my job</h3>
                   <ul v-if="loggedInProfileDataQuery.applicants">
                     <li v-for="(applicant, idx) in loggedInProfileDataQuery.applicants" :key="idx">
-                      <h4>{{applicant.name}}<button class="del-btn" @click="deleteApplicant(applicant.id, loggedInProfileDataQuery.id)"><i class="fas fa-trash-alt"></i></button></h4>
-                      <p> {{applicant.email}}</p>
+                      <h4>{{applicant.name}}</h4>
+                      <button class="del-btn" @click="deleteApplicant(applicant.id, loggedInProfileDataQuery.id)"><i class="fas fa-trash-alt"></i></button>
+                      <h4> {{applicant.email}}</h4>
                       <p> {{applicant.aboutYourself}}</p>
                       <p> {{applicant.appliedFor}}</p>  
                     </li>
@@ -120,7 +122,10 @@ export default {
     deleteApplicant(applicantId, employerId) {},
     deleteJob(jobId, employerId) {
       //delete the job from DB
-      var BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs';
+      var BASE_URL =
+        process.env.NODE_ENV !== "development"
+          ? "/jobs"
+          : "http://localhost:8000/jobs";
       axios
         .delete(`${BASE_URL}?id=${jobId}`)
         .then(res => {})
@@ -138,7 +143,10 @@ export default {
       currEmployer.offeredJobs.splice(idx, 1);
 
       //updating Employer in the DB, with one job less (by deleting and posting a new one)
-      BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/employers' : 'http://localhost:8000/employers';
+      BASE_URL =
+        process.env.NODE_ENV !== "development"
+          ? "/employers"
+          : "http://localhost:8000/employers";
       axios
         .delete(`${BASE_URL}?id=${employerId}`)
         .then(() => {
@@ -176,7 +184,10 @@ export default {
         };
 
         //post new Job
-        var BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs';
+        var BASE_URL =
+          process.env.NODE_ENV !== "development"
+            ? "/jobs"
+            : "http://localhost:8000/jobs";
         axios
           .post(`${BASE_URL}`, this.newJob)
           .then(res => {
@@ -203,7 +214,10 @@ export default {
         newEmployer.offeredJobs.push(this.newJob);
       }
       //post new Employer
-      BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/employers' : 'http://localhost:8000/employers';
+      BASE_URL =
+        process.env.NODE_ENV !== "development"
+          ? "/employers"
+          : "http://localhost:8000/employers";
       axios.post(`${BASE_URL}`, newEmployer).then(res => {
         this.updateLoggedInProfileData(res.data);
       });
@@ -226,7 +240,10 @@ export default {
         };
 
         //post request to the server to add job the jobs DB
-        var BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/jobs' : 'http://localhost:8000/jobs'; 
+        var BASE_URL =
+          process.env.NODE_ENV !== "development"
+            ? "/jobs"
+            : "http://localhost:8000/jobs";
         axios
           .post(`${BASE_URL}`, this.newJob)
           .then(res => {})
@@ -251,7 +268,10 @@ export default {
 
       //request to the server - to delete and post Employer profile
       var id = this.loggedInProfileDataQuery.id;
-      BASE_URL = (process.env.NODE_ENV !== 'development' ) ? '/employers' : 'http://localhost:8000/employers';
+      BASE_URL =
+        process.env.NODE_ENV !== "development"
+          ? "/employers"
+          : "http://localhost:8000/employers";
       axios
         .delete(`${BASE_URL}?id=${id}`)
         .then()
@@ -369,8 +389,6 @@ li {
 .employer-sing-up-form button,
 .edit-form button {
   align-self: center;
-  /* border-radius: 5px; */
-  /* background-color: #0caa41; */
   background-color: #0caa41;
   color: white;
   border: none;
@@ -463,7 +481,63 @@ li {
   width: 70px;
 }
 .jobs-and-applicants {
-    display: flex;
+  display: flex;
+}
+
+@media (max-width: 700px) {
+  .edit-form {
+    margin: 10%;
+  }
+  .edit-form h1 {
+    font-size: 1.5em;
+  }
+  .avatar {
+    height: 50px;
+    width: 50px;
+  }
+  .upload-image {
+    font-size: 14px !important;
+    width: 100%;
+    margin: auto;
+  }
+  .avatar-and-btn-container button {
+    width: 100%;
+    margin: auto;
+  }
+  .edit-btn, .del-btn {
+    width: 100%;
+    height: 30px;
+  }
+  .avatar-and-btn-container {
+    display: inline;
+  }
+  .jobs-and-applicants {
+    display: initial;
+  }
+  .edit-form h3 {
+    margin: 10px auto;
+    text-align: center;
+  }
+  li {
+  }
+  .my-jobs h4 {
+    text-align: center;
+  }
+  .my-jobs p, h4 {
+    text-align: justify;
+    text-align-last: center;
+    margin-bottom: 10px;
+  }
+  .my-jobs button {
+    width: 100%;
+  }
+  .my-applicants ul, .my-jobs ul{
+    padding: 0;
+    margin: 20px;
+  }
+  .my-applicants .del-btn{
+    height: 30px;
+  }
 }
 </style>
 

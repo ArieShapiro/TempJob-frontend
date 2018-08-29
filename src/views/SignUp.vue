@@ -94,4 +94,10 @@ export default {
 .sign-up-form button:hover {
   background-color: #0c5525;
 }
+
+@media (max-width: 500px){
+  .sign-up-form{
+    margin: 10%;
+  }
+}
 </style>
