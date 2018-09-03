@@ -45,11 +45,12 @@ h1 {
   margin: 10px;
 }
 .filter-conteiner {
-  
   margin: 20px auto;
   height: auto;
   display: flex;
   justify-content: space-evenly;
+  position: relative;
+  top: 46px;
 }
 .filter-conteiner button {
   background-color: #0caa41;
@@ -82,7 +83,6 @@ h1 {
   background-color: #94f080;
 }
 .search {
-  
   border: 1px solid gray;
   padding: 10px;
 }
@@ -121,7 +121,9 @@ input:focus {
   .search input {
     font-size: 10px;
     width: 155px;
-        
+  }
+  .filter-conteiner {
+    margin-bottom: 60px;
   }
 }
 </style>

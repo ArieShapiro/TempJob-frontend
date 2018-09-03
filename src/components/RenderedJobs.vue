@@ -97,6 +97,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-family: 'Nunito';
+}
 ul {
   padding: 50px;
 }
@@ -110,14 +113,15 @@ li {
   justify-content: space-around;
 }
 .fa-refresh:before {
-    content: "\f021";
-    color: #0caa41;
+  content: "\f021";
+  color: #0caa41;
 }
-.throbber{
+.throbber {
   font-size: 4em;
   text-align: center;
+  position: relative;
+  top: 80px;
 }
-
 
 @media (max-width: 500px) {
   ul {

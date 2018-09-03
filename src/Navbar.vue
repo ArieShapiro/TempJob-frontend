@@ -1,11 +1,12 @@
 <template>
-  <section >
+  <section>
     <!--Mobile Burger Nav-->
+    <div class="nav-cmp">
     <div class="burger-nav">
       <div class="burger-and-logo">
         <i class="fas fa-bars hamburger" @click="openBurgerBar"></i>
         <div v-if="loggedInStatusQuery" @click="viewProfile" class="hellow-user-mobile">Hello {{ loggedInProfileDataQuery.name }}!</div>
-        <div v-if="loggedInStatusQuery" @click="logout" class="logout-mobile"><i class="fas fa-power-off po"></i>Logout</div>
+        <div v-if="loggedInStatusQuery" @click="logout" class="logout-mobile"><i class="fas fa-power-off po"></i></div>
         <i class="fas fa-briefcase" style="margin-top: 8px; font-size: 1.5em" @click="goHome"></i>
       </div>
       <div class="responsive-bar-container opened">
@@ -18,17 +19,18 @@
     </div>
 
     <!--Normal-->
-    <div class="navbar">
+    <div class="navbar nav-cmp">
       <i class="fas fa-briefcase home-icon" @click="goHome"></i>
-      <router-link to="/" class="nav-element"><span>Home</span></router-link> 
+      <router-link to="/" class="nav-element">Home</router-link> 
       <router-link to="/about" class="nav-element">About</router-link>
       <router-link to="/contact" class="nav-element">Contact</router-link>        
       <router-link v-if="!loggedInStatusQuery" to="/sign-up" class="nav-element">SignUp</router-link> 
       <router-link v-if="!loggedInStatusQuery" to="/login" class="nav-element">Login</router-link>
 
       <div v-if="loggedInStatusQuery" @click="viewProfile" class="hellow-user">Hello {{ loggedInProfileDataQuery.name }}!</div>
-      <div v-if="loggedInStatusQuery" @click="logout" class="logout"><i class="fas fa-power-off"></i>Logout</div>
-      <div class="empty-nav-element"></div>
+      <div v-if="loggedInStatusQuery" @click="logout" class="logout"><i class="fas fa-power-off"></i></div>
+      <div class="empty-nav-element nav-cmp"></div>
+    </div>
     </div>
     <router-view/>
   </section>
@@ -99,6 +101,13 @@ export default {
 </script>
 
 <style>
+.nav-cmp, .nav-element, .home-icon{
+  position: sticky;
+    top: 0;
+    z-index: 1;
+    /* opacity: 0; */
+    background-color: white;
+}
 .burger-nav {
   display: none;
   height: 55px;
@@ -133,29 +142,31 @@ export default {
 .responsive-bar-container div:hover {
   background-color: #0e0909 !important;
 }
-
 .navbar {
   display: flex;
   color: #404040;
   height: 35px;
   margin-top: 10px;
+  font-variant: small-caps;
 }
 .navbar i {
   border-bottom: 1px solid #999;
-  padding: 0 10px;
+  padding: 35px 40px;
   color: #404040;
+  font-size: 2.5em;
 }
 .navbar div {
   width: -webkit-fill-available;
 }
 .nav-element {
   border-bottom: 1px solid #999;
-  padding: 0 10px;
+  padding: 35px 40px;
   color: #404040;
+  font-size: 1.2em;
 }
 .empty-nav-element {
   border-bottom: 1px solid #999;
-  padding: 0 10px;
+  padding: 35px 40px;
   color: #404040;
 }
 .nav-element:hover {
@@ -166,28 +177,40 @@ export default {
   content: "\f0b1";
   padding-right: 10px;
   color: #0caa41;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  position: relative;
+  bottom: 28px;
+  right: 31px;
 }
-.home-icon:hover {
+.home-icon {
+  padding: 35px 40px;
+}
+.fa-briefcase:hover {
+  color: #629271;
   cursor: pointer;
 }
 .hellow-user {
   border-bottom: 1px solid #999;
-  padding: 0 10px;
+  padding: 35px 0px;
   color: #404040;
   padding-left: 100px;
 }
 .logout {
   border-bottom: 1px solid #999;
-  padding: 0 10px;
+  padding: 35px 100px;
   color: #404040;
 }
 .logout i {
-  padding-bottom: 17px;
+  position: relative;
+  bottom: 58px;
+  font-size: 2.5em;
+  padding-bottom: 18px;
 }
 .hellow-user:hover,
-.logout:hover {
+.logout:hover,
+.fa-power-off:hover {
   cursor: pointer;
+  color: #0caa41;
 }
 
 .hellow-user-mobile {
@@ -203,7 +226,11 @@ export default {
   margin-right: 5px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 930px) {
+  .fa-briefcase:before {
+    font-size: 1.7em;
+    position: static;
+  }
   .navbar {
     display: none;
   }
@@ -213,6 +240,11 @@ export default {
   .hellow-user-mobile,
   .logout-mobile {
     margin: 18px 0px;
+  }
+  .logout-mobile {
+    font-size: 1.7em;
+    position: relative;
+    bottom: 5px;
   }
   .hellow-user-mobile:hover {
     color: #0caa41;
@@ -227,6 +259,9 @@ export default {
   }
   .logout-mobile:active {
     color: #0caa41;
+  }
+  .fa-power-off:before {
+    font-size: 1.3em;
   }
 }
 </style>

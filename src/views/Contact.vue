@@ -30,7 +30,7 @@
 <style scoped>
 h1 {
   text-align: center;
-  margin: 40px 0 5px;
+  margin: 90px 0 5px;
   color: #0caa41;
 }
 .contact-icons {

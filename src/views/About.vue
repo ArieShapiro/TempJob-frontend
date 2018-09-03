@@ -50,5 +50,13 @@
   margin: 5%;
   color: #0fab44;
 }
+
+@media (min-width: 886px){
+  .about-us-title {
+  margin: 50px;
+  color: #0caa41;
+  margin-top: 90px;
+}
+}
 </style>
 

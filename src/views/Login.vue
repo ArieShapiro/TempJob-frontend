@@ -71,11 +71,10 @@ export default {
 
 <style>
 .login-form {
-  margin: 40px auto;
+  margin: 125px auto;
   max-width: 350px;
   border: 1px solid gray;
   height: auto;
-
   display: flex;
   flex-direction: column;
   padding: 20px;

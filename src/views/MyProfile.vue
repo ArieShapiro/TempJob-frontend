@@ -32,7 +32,7 @@
                 <div class="avatar"></div>   
                 <button class="upload-image">Upload Image</button>     
             </div>
-            <button @click="editClicked" class="edit-btn">Edit</button>
+            <button @click="editClicked" class="edit-btn">Edit Profile</button>
             <p v-if="nonEdit" class="non-edit">Full Name: {{name}}</p>
             <input v-else v-model="name" type="text" placeholder="Full name">
             <p v-if="nonEdit" class="non-edit">Phone number: {{this.phone}}</p>
@@ -235,6 +235,7 @@ export default {
           ? "/employers"
           : "http://localhost:8000/employers";
       axios.post(`${BASE_URL}`, newEmployer).then(res => {
+        swal("Your profile was created successfuly!", "", "success");
         this.updateLoggedInProfileData(res.data);
       });
       //handle Navbar: Logout button, Hello + userName(through updating loggeIn status)
@@ -417,6 +418,7 @@ li {
   padding: 0 20px;
   height: 40px;
   margin: 10px;
+  width: 100%;
 }
 .edit-btn {
   background-color: #0097a7 !important;
@@ -432,9 +434,6 @@ li {
 .edit-form button:hover {
   background-color: #0c5525;
 }
-.description {
-  /*height: 100px;*/
-}
 .avatar {
   background-image: url(/img/avatar.2ec5fa7b.png);
   height: 88px;
@@ -445,11 +444,10 @@ li {
   margin: 20px auto;
 }
 .avatar-and-btn-container {
-  display: flex;
 }
 .avatar-and-btn-container button {
-  align-self: center;
-  width: auto;
+  margin: 10px auto;
+  width: 100%;
 }
 .about,
 .about-me {
@@ -478,7 +476,7 @@ li {
   padding-right: 125px;
 }
 .edit-form {
-  margin: 40px auto;
+  margin: 80px auto;
   max-width: 645px;
   border: 1px solid gray;
   height: auto;
@@ -491,17 +489,21 @@ li {
 }
 .edit-form h3 {
   margin: 10px auto;
+  text-align: center;
 }
 .my-jobs p {
-  margin: 20px;
+  
 }
 .my-jobs button {
   background-color: #e8664c;
   height: 30px;
-  width: 70px;
+  
 }
 .jobs-and-applicants {
   display: flex;
+}
+.edit-form h4 {
+    text-align: center;
 }
 
 @media (max-width: 800px) {

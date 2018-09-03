@@ -57,11 +57,10 @@ export default {
 
 <style>
 .sign-up-form {
-  margin: 40px auto;
+  margin: 125px auto;
   max-width: 350px;
   border: 1px solid gray;
   height: auto;
-
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -77,8 +76,6 @@ export default {
   width: 110px;
   -ms-flex-item-align: center;
   align-self: center;
-  /* border-radius: 5px; */
-  /* background-color: #0caa41; */
   background-color: #0caa41;
   color: white;
   border: none;

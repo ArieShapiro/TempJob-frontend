@@ -90,8 +90,12 @@ export default {
                     var id = employer.id;
                     axios
                       .delete(`${BASE_URL}?id=${id}`)
-                      .then(()=>{
-                        swal("Your application for this job was submitted successfuly!", "", "success");
+                      .then(() => {
+                        swal(
+                          "Your application for this job was submitted successfuly!",
+                          "",
+                          "success"
+                        );
                       })
                       .catch();
                   })
@@ -133,7 +137,6 @@ export default {
 
 <style>
 body {
-  font-variant: small-caps;
 }
 .rendered-job {
   width: 100%;
@@ -235,33 +238,33 @@ input.about-yourself {
   }
   .company-location h2 {
     font-size: 10px;
+    margin: 3%;
   }
   .application-form input {
     margin: 10px auto;
     height: 30px;
     min-width: 0;
     width: 200px !important;
-}
+  }
 
   .rendered-job button {
     width: 95%;
     height: 35px;
     margin: 5px 0px;
     margin-left: 5px;
-}
+  }
   .fill-in {
     font-size: 15px;
     margin-top: 30px;
   }
-  
 
   input.about-yourself {
     width: auto;
     height: 150px;
-}
+  }
   .rendered-job div {
     margin: 0;
-}
+  }
 }
 </style>
 
