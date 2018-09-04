@@ -8,11 +8,11 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors.3dfcb28d.js"
   },
   {
-    "revision": "626d4d04aca95484dd10",
-    "url": "/js/app.626d4d04.js"
+    "revision": "33b98773c0cba0d38c21",
+    "url": "/js/app.33b98773.js"
   },
   {
-    "revision": "19c06da4426d744121dcbde05e99c3b3",
+    "revision": "470bab9cb0a78efc8678b5e75cf610f7",
     "url": "/index.html"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/img/favicon-suitcase.jpg"
   },
   {
-    "revision": "626d4d04aca95484dd10",
-    "url": "/css/app.6e6adb41.css"
+    "revision": "33b98773c0cba0d38c21",
+    "url": "/css/app.efe97675.css"
   }
 ];

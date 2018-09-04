@@ -98,7 +98,7 @@ export default {
 
 <style scoped>
 *{
-  font-family: 'Nunito';
+  
 }
 ul {
   padding: 50px;

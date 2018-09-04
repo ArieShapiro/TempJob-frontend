@@ -65,7 +65,7 @@
                   <ul v-if="loggedInProfileDataQuery.applicants">
                     <li v-for="(applicant, idx) in loggedInProfileDataQuery.applicants" :key="idx">
                       <h4>{{applicant.name}}</h4>
-                      <button class="del-btn" @click="deleteApplicant(applicant.id, loggedInProfileDataQuery.id)"><i class="fas fa-trash-alt"></i></button>
+                      <button class="del-btn" @click="deleteApplicant(idx, loggedInProfileDataQuery.id)"><i class="fas fa-trash-alt"></i></button>
                       <h4> {{applicant.email}}</h4>
                       <p> {{applicant.aboutYourself}}</p>
                       <p> {{applicant.appliedFor}}</p>  
@@ -119,7 +119,29 @@ export default {
     };
   },
   methods: {
-    deleteApplicant(applicantId, employerId) {},
+    deleteApplicant(idx, employerId) {
+      var currEmployer = JSON.parse(
+        JSON.stringify(this.loggedInProfileDataQuery)
+      );
+      currEmployer.applicants.splice(idx, 1);
+
+      //updating Employer in the DB, with one job less (by deleting and posting a new one)
+      var BASE_URL =
+        process.env.NODE_ENV !== "development"
+          ? "/employers"
+          : "http://localhost:8000/employers";
+      axios
+        .delete(`${BASE_URL}?id=${employerId}`)
+        .then(() => {
+          axios
+            .post(`${BASE_URL}`, currEmployer)
+            .then(res => {
+              this.updateLoggedInProfileData(res.data);
+            })
+            .catch(err => {});
+        })
+        .catch(err => {});
+    },
 
     deleteJob(jobId, employerId) {
       swal({
@@ -148,7 +170,6 @@ export default {
           currEmployer.offeredJobs.forEach(job => {
             if (job.id === jobId) idx = currEmployer.offeredJobs.indexOf(job);
           });
-
           currEmployer.offeredJobs.splice(idx, 1);
 
           //updating Employer in the DB, with one job less (by deleting and posting a new one)
@@ -492,18 +513,16 @@ li {
   text-align: center;
 }
 .my-jobs p {
-  
 }
 .my-jobs button {
   background-color: #e8664c;
   height: 30px;
-  
 }
 .jobs-and-applicants {
   display: flex;
 }
 .edit-form h4 {
-    text-align: center;
+  text-align: center;
 }
 
 @media (max-width: 800px) {

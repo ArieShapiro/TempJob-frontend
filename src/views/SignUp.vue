@@ -2,7 +2,9 @@
   <section>
     <div class="sign-up-form">
         <h1>Sign Up </h1><small>(as an employer. If you are looking for a job, you don't need to sign up)</small>
+        <p v-if="errEmail">Please type a valid email</p>
         <input v-model="email" type="email" placeholder="Email">
+        <p v-if="errPassword">The password should contain at least 6 characters</p>
         <input v-model="password" type="password" placeholder="Password">
         <button @click="signUp">Sign Up</button>   
     </div>    
@@ -16,7 +18,9 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      errEmail: false,
+      errPassword: false
     };
   },
   methods: {
@@ -24,22 +28,22 @@ export default {
       this.$store.commit({ type: "updateTempData", newData });
     },
     signUp() {
+      if (!this.email.includes("@") || !this.email.includes(".")) {
+        this.errEmail = true;
+        if (this.password.length < 6) {
+          this.errPassword = true;
+        }
+        return;
+      }
+      if (this.password.length < 6) {
+        this.errPassword = true;
+        return;
+      }
       var newData = ["newSignUp", this.email, this.password];
       //updating tempData in the store with the value 'newSignIn'
       this.updateTempData(newData);
       //rederecting to myProfile page
       this.$router.push("/my-profile");
-
-      /*
-      var loggedInStatus = this.loggedInStatusQuery;
-      loggedInStatus = JSON.parse(JSON.stringify(loggedInStatus));
-      loggedInStatus = this.user;
-      //updating loggedIn Status
-      this.$store.commit({
-        type: "updateLoggenInStatuss",
-        newStatus: loggedInStatus
-      });
- */
     }
   },
   computed: {
@@ -65,8 +69,12 @@ export default {
   flex-direction: column;
   padding: 20px;
 }
-.sign-up-form small{
-  font-size: 5px;
+.sign-up-form p {
+  color: red;
+  text-align: center;
+}
+.sign-up-form small {
+  text-align: center;
 }
 .sign-up-form input {
   margin: 10px;
@@ -95,8 +103,8 @@ export default {
   background-color: #0c5525;
 }
 
-@media (max-width: 500px){
-  .sign-up-form{
+@media (max-width: 500px) {
+  .sign-up-form {
     margin: 10%;
   }
 }
