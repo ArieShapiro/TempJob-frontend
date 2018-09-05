@@ -23,6 +23,7 @@
             </div>
             <button v-if="!newJobFormOpened" @click="addJobButtonClicked">Post New Job</button>     
             <!--*************-->
+            <p v-if="errNewJobFields">Please fill in all required New Job fields</p>
             <button @click="submitEmployer">Submit</button>   
         </div>
         <!--Edit Form-->
@@ -95,6 +96,7 @@ import { bus } from "../main.js";
 export default {
   data() {
     return {
+      errNewJobFields: false,
       nonEdit: false,
       passLength: [],
       editProfile: false,
@@ -114,7 +116,6 @@ export default {
       title: "",
       location: "",
       description: "",
-
       newJob: ""
     };
   },
@@ -209,6 +210,14 @@ export default {
     submitEmployer() {
       //add new Job to the DB
       if (this.newJobFormOpened) {
+        if (
+          this.title === "" ||
+          this.location === "" ||
+          this.description === ""
+        ) {
+          this.errNewJobFields = true;
+          return;
+        }
         this.newJob = {
           title: this.title,
           createdAt: "",
@@ -383,6 +392,10 @@ export default {
 </script>
 
 <style>
+.employer-sing-up-form p {
+  color: red;
+  text-align: center;
+}
 .edit-form p {
   text-indent: 10px;
   text-align: justify;
