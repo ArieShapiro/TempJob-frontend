@@ -172,6 +172,7 @@ export default {
 .nav-element:hover {
   border-bottom: 2px solid #0caa41;
   color: #0caa41;
+  text-shadow: 2px 2px 4px #0caa41;
 }
 .fa-briefcase:before {
   content: "\f0b1";
@@ -181,6 +182,7 @@ export default {
   position: relative;
   bottom: 28px;
   right: 31px;
+  text-shadow: 4px 5px 4px #3d5649;
 }
 .home-icon {
   padding: 35px 40px;
@@ -228,7 +230,7 @@ export default {
 
 @media (max-width: 930px) {
   .fa-briefcase:before {
-    font-size: 1.7em;
+    font-size: 1.4em;
     position: static;
   }
   .navbar {
