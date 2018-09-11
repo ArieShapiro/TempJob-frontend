@@ -477,8 +477,7 @@ li {
   background-size: 100px auto;
   margin: 20px auto;
 }
-.avatar-and-btn-container {
-}
+
 .avatar-and-btn-container button {
   margin: 10px auto;
   width: 100%;
@@ -525,8 +524,7 @@ li {
   margin: 10px auto;
   text-align: center;
 }
-.my-jobs p {
-}
+
 .my-jobs button {
   background-color: #e8664c;
   height: 30px;
@@ -573,8 +571,7 @@ li {
     margin: 10px auto;
     text-align: center;
   }
-  li {
-  }
+  
   .my-jobs h4 {
     text-align: center;
   }

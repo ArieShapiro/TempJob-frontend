@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="animated fadeInDown">
     <!--Mobile Burger Nav-->
     <div class="nav-cmp">
     <div class="burger-nav">
@@ -9,7 +9,7 @@
         <div v-if="loggedInStatusQuery" @click="logout" class="logout-mobile"><i class="fas fa-power-off po"></i></div>
         <i class="fas fa-briefcase" style="margin-top: 8px; font-size: 1.5em" @click="goHome"></i>
       </div>
-      <div class="responsive-bar-container opened">
+      <div class="responsive-bar-container opened animated" :class="{fadeInDown: isResponsiveBarOpened}">
         <router-link to="/"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">Home</div></router-link>
         <router-link to="/about"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">About</div></router-link>
         <router-link to="/contact"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">Contact</div></router-link>

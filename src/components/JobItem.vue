@@ -11,9 +11,9 @@
                 <div class="description">{{ job.description}}</div>
                 <h3 v-if="isApplicationFormOpened" class="fill-in">Fill in your details to apply:</h3>
                 <div v-if="isApplicationFormOpened" class="application-form">
-                    <input v-model="applicationFullName" type="text" @click="stopPropo" placeholder="Your full name">
-                    <input v-model="applicationEmail" type="text" @click="stopPropo" placeholder="Your email">
-                    <input v-model="aboutYourself" class="about-yourself" type="text" @click="stopPropo" placeholder="About youself, your experience, relavant links...">
+                    <input v-model="applicationFullName" type="text" @click="stopPropo" placeholder="Your full name" required>
+                    <input v-model="applicationEmail" type="text" @click="stopPropo" placeholder="Your email" required>
+                    <input v-model="aboutYourself" class="about-yourself" type="text" @click="stopPropo" placeholder="About youself, your experience, relavant links..." required>
                     <button class="upload-cv-btn" @click="uploadCV">Upload your CV<i class="fas fa-file-upload cv-icon"></i></button>  
                     <button @click="submitApplication" class="apply-btn">Submit Application</button>
                 </div>
