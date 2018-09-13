@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style>
+.home{
+  background-color: #eaeaea;
+}
 
 .items-title {
   text-shadow: 2px 2px #1b8a2b;

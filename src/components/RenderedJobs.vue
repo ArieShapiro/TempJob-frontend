@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="home-background">
       <div v-if="throbber" class="throbber"><i class="fa fa-refresh fa-spin"></i></div>
         <ul>
             <li v-for="(job,idx) in displayFilteredJobs" :key="idx">
@@ -97,21 +97,28 @@ export default {
 </script>
 
 <style scoped>
-*{
-  
+.home-background{
+  background-color: #eaeaea;
 }
 ul {
   padding: 50px;
 }
-li {
+.home-background li {
   list-style-type: none;
   margin: 20px auto;
-  max-width: 1000px;
-  border-bottom: 1px solid;
+  max-width: 1000px;  
   padding: 5px;
   display: flex;
   justify-content: space-around;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
 }
+
+.home-background li:hover{
+  background-color: aliceblue;
+}
+
 .fa-refresh:before {
   content: "\f021";
   color: #0caa41;

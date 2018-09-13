@@ -1,5 +1,5 @@
 <template>
-  <section class="animated fadeInDown">
+  <section>
     <!--Mobile Burger Nav-->
     <div class="nav-cmp">
     <div class="burger-nav">
@@ -101,12 +101,14 @@ export default {
 </script>
 
 <style>
-.nav-cmp, .nav-element, .home-icon{
+.nav-cmp,
+.nav-element,
+.home-icon {
   position: sticky;
-    top: 0;
-    z-index: 1;
-    /* opacity: 0; */
-    background-color: white;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
 }
 .burger-nav {
   display: none;
@@ -123,6 +125,7 @@ export default {
 .burger-and-logo {
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 14px 10px 0 rgba(0, 0, 0, 0.2);
 }
 .burger-nav-element {
   display: none;
@@ -173,6 +176,7 @@ export default {
   border-bottom: 2px solid #0caa41;
   color: #0caa41;
   text-shadow: 2px 2px 4px #0caa41;
+  box-shadow: 0 4px 6px 0 #0caa41;
 }
 .fa-briefcase:before {
   content: "\f0b1";
@@ -264,6 +268,11 @@ export default {
   }
   .fa-power-off:before {
     font-size: 1.3em;
+  }
+  .nav-cmp,
+  .nav-element,
+  .home-icon {
+    height: 10px;
   }
 }
 </style>

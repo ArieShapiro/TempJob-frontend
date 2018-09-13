@@ -85,6 +85,7 @@ h1 {
 .search {
   border: 1px solid gray;
   padding: 10px;
+  background-color: white;
 }
 .search i {
   color: #0caa41;

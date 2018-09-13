@@ -136,8 +136,7 @@ export default {
 </script>
 
 <style>
-body {
-}
+
 .rendered-job {
   width: 100%;
   text-align: center;
