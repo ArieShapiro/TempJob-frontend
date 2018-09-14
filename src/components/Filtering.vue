@@ -87,6 +87,9 @@ h1 {
   padding: 10px;
   background-color: white;
 }
+.search:hover{
+  border: 1px solid #7097e0;
+}
 .search i {
   color: #0caa41;
 }

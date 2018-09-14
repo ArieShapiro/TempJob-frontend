@@ -149,7 +149,6 @@ export default {
   display: flex;
   color: #404040;
   height: 35px;
-  margin-top: 10px;
   font-variant: small-caps;
 }
 .navbar i {

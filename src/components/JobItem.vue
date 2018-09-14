@@ -7,10 +7,10 @@
                 <div><h2 class="job-loc">{{ job.location }}</h2></div>
             </div>
             <div>{{ job.createdAt }}</div>
-            <div v-if="isOpen">
+            <div v-if="isOpen" class="animated bounce">
                 <div class="description">{{ job.description}}</div>
                 <h3 v-if="isApplicationFormOpened" class="fill-in">Fill in your details to apply:</h3>
-                <div v-if="isApplicationFormOpened" class="application-form">
+                <div v-if="isApplicationFormOpened" class="application-form animated bounceIn">
                     <input v-model="applicationFullName" type="text" @click="stopPropo" placeholder="Your full name" required>
                     <input v-model="applicationEmail" type="text" @click="stopPropo" placeholder="Your email" required>
                     <input v-model="aboutYourself" class="about-yourself" type="text" @click="stopPropo" placeholder="About youself, your experience, relavant links..." required>
@@ -25,6 +25,7 @@
 
 <script>
 import axios from "axios";
+import { bus } from "../main.js";
 
 export default {
   props: ["job"],
@@ -40,6 +41,9 @@ export default {
   },
   methods: {
     descriptionToggle() {
+      if (!this.isOpen) {
+        bus.$emit("jobCardClicked");
+      }
       this.isOpen = !this.isOpen;
     },
 
@@ -131,12 +135,16 @@ export default {
       return this.$store.getters.loggedInProfileDataQuery;
     }
   },
-  created() {}
+
+  created() {
+    bus.$on("jobCardClicked", () => {
+      this.isOpen = false;
+    });
+  }
 };
 </script>
 
 <style>
-
 .rendered-job {
   width: 100%;
   text-align: center;
@@ -177,7 +185,7 @@ export default {
 }
 .application-form input {
   margin: 10px auto;
-  min-width: 250px;
+  min-width: 313px;
   height: 30px;
 }
 .application-form button {
@@ -188,7 +196,7 @@ export default {
   margin-left: 20px;
 }
 input.about-yourself {
-  width: 400px;
+  width: 313px;
   height: 100px;
 }
 
