@@ -7,7 +7,7 @@
                 <div><h2 class="job-loc">{{ job.location }}</h2></div>
             </div>
             <div>{{ job.createdAt }}</div>
-            <div v-if="isOpen" class="animated bounce">
+            <div v-if="isOpen" class="animated bounce" :class="{fadeOut: fadeOut}">
                 <div class="description">{{ job.description}}</div>
                 <h3 v-if="isApplicationFormOpened" class="fill-in">Fill in your details to apply:</h3>
                 <div v-if="isApplicationFormOpened" class="application-form animated bounceIn">
@@ -31,6 +31,7 @@ export default {
   props: ["job"],
   data() {
     return {
+      fadeOut: false,
       isApplicationFormOpened: false,
       isOpen: false,
       applicationFullName: "",
@@ -43,6 +44,13 @@ export default {
     descriptionToggle() {
       if (!this.isOpen) {
         bus.$emit("jobCardClicked");
+      }
+      if (this.isOpen) {
+        this.fadeOut = !this.fadeOut;
+        setTimeout(() => {
+          this.isOpen = !this.isOpen;
+        }, 500);
+        return;
       }
       this.isOpen = !this.isOpen;
     },
@@ -130,6 +138,7 @@ export default {
       return text;
     }
   },
+
   computed: {
     loggedInProfileDataQuery() {
       return this.$store.getters.loggedInProfileDataQuery;

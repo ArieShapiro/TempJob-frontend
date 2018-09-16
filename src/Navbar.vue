@@ -101,6 +101,10 @@ export default {
 </script>
 
 <style>
+html {
+  background-color: #eaeaea;
+}
+
 .nav-cmp,
 .nav-element,
 .home-icon {
