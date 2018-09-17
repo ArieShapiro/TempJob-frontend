@@ -254,7 +254,8 @@ export default {
         image: "",
         password: this.password,
         applicants: [],
-        id: this._makeId()
+        id: this._makeId(),
+        isNowCreated: true
       };
       if (this.newJobFormOpened) {
         newEmployer.offeredJobs.push(this.newJob);
@@ -308,7 +309,8 @@ export default {
         about: this.about,
         image: this.loggedInProfileDataQuery.image,
         password: this.password,
-        id: this._makeId()
+        id: this._makeId(),
+        isNowCreated: false
       };
       //update the offered jobs of the object
       if (this.newJobFormOpened) profileData.offeredJobs.push(this.newJob);
@@ -571,7 +573,7 @@ li {
     margin: 10px auto;
     text-align: center;
   }
-  
+
   .my-jobs h4 {
     text-align: center;
   }
