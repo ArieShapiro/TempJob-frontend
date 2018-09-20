@@ -23,14 +23,29 @@
         <input class="email-input" type="email" placeholder="Email">
         <input class="message-input" type="text" placeholder="Message">  
         <button disabled="disabled">Send</button>    
-    </div>     
+    </div>  
+
+        
+
   </section>    
 </template>
+
+<script>
+export default {
+  data() {
+    return {};
+  },
+  created() {
+    
+  }
+};
+</script>
+
 
 <style scoped>
 h1 {
   text-align: center;
-  margin: 30px 0 5px;
+  margin: 70px 0 5px;
   color: #0caa41;
 }
 .contact-icons {
@@ -57,20 +72,20 @@ h1 {
 .phone i {
   color: teal;
 }
-.phone i:hover{
+.phone i:hover {
   color: #18b3b3;
 }
 .adress i {
   color: #ea4335;
 }
-.adress i:hover{
-  color:#eaa099;
+.adress i:hover {
+  color: #eaa099;
 }
 .email i {
   color: #234eb4;
 }
-.email i:hover{
-  color:#7d94cb;
+.email i:hover {
+  color: #7d94cb;
 }
 .contact-form {
   margin: 40px auto;
@@ -119,7 +134,7 @@ h1 {
     display: flex;
     justify-content: center;
   }
-  .contact-form{
+  .contact-form {
     margin: 0 10% 30%;
   }
 }

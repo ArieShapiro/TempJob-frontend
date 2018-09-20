@@ -179,7 +179,9 @@ html {
   border-bottom: 2px solid #0caa41;
   color: #0caa41;
   text-shadow: 2px 2px 4px #0caa41;
-  box-shadow: 0 4px 6px 0 #0caa41;
+  box-shadow: 0px 0px 0px #0caa41;
+  border-left: 2px solid #0caa41;
+  border-right: 2px solid #0caa41;
 }
 .fa-briefcase:before {
   content: "\f0b1";
