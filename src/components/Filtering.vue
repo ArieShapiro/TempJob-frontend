@@ -64,21 +64,7 @@ h1 {
   background-color: #0c5525;
 }
 
-.date {
-  font-size: 1.3em;
-  padding: 5px;
-  margin: 15px 50px;
-  border: 2px solid;
-}
-.job {
-  font-size: 1.3em;
-  padding: 5px;
-  margin: 15px 50px;
-  border: 2px solid;
-}
-.date-input {
-  width: 120px;
-}
+
 .select {
   background-color: #94f080;
 }

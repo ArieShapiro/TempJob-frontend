@@ -176,12 +176,12 @@ html {
   color: #404040;
 }
 .nav-element:hover {
-  border-bottom: 2px solid #0caa41;
+  border-bottom: 1px solid #0caa41;
   color: #0caa41;
-  text-shadow: 2px 2px 4px #0caa41;
-  box-shadow: 0px 0px 0px #0caa41;
-  border-left: 2px solid #0caa41;
-  border-right: 2px solid #0caa41;
+  box-shadow: 1px 1px 1px #0caa41;
+  border-left: 1px solid #0caa41;
+  border-right: 1px solid #0caa41;
+  margin: -1px;
 }
 .fa-briefcase:before {
   content: "\f0b1";
