@@ -5,7 +5,7 @@
       <div class="phone">
         <i class="fas fa-mobile-alt i"></i>
         <h5>Call us at
-        053-529-4075</h5>
+        04-8325877</h5>
       </div>
       <div class="adress">
         <i class="fas fa-map-marker-alt i"></i>

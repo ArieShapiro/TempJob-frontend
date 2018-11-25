@@ -45,7 +45,7 @@ h1 {
   margin: 10px;
 }
 .filter-conteiner {
-  margin: 20px auto;
+  margin: 85px auto 20px;
   height: auto;
   display: flex;
   justify-content: space-evenly;
@@ -64,7 +64,6 @@ h1 {
   background-color: #0c5525;
 }
 
-
 .select {
   background-color: #94f080;
 }
@@ -73,7 +72,7 @@ h1 {
   padding: 10px;
   background-color: white;
 }
-.search:hover{
+.search:hover {
   border: 1px solid #7097e0;
 }
 .search i {
