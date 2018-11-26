@@ -17,7 +17,7 @@
           <i class="fas fa-bars hamburger" @click="openBurgerBar"></i>
         </div>
 
-        <div class="responsive-bar-container opened animated" :class="{bounceInDown: isResponsiveBarOpened, bounceOutUp: navGo}">
+        <div class="responsive-bar-container opened animated slower" :class="{slideInRight: isResponsiveBarOpened, slideOutRight: navGo}">
           <router-link to="/"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">Home</div></router-link>
           <router-link to="/about"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">About</div></router-link>
           <router-link to="/contact"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">Contact</div></router-link>

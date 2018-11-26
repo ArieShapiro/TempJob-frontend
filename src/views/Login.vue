@@ -1,14 +1,16 @@
 <template>
   <section>
     <div class="login-form">
-        <h1>Login</h1>
-        <p v-if="accessDenied" class="access-denied">Email or password are incorrect. Please try again.</p>
-        <input v-model="email" type="email" placeholder="Email">
-        <input v-model="password" type="password" placeholder="Password">
-        <button @click="login">Login</button>   
-    </div>   
+      <h1>Login</h1>
+      <p
+        v-if="accessDenied"
+        class="access-denied"
+      >Email or password are incorrect. Please try again.</p>
+      <input v-model="email" type="email" placeholder="Email">
+      <input v-model="password" type="password" placeholder="Password">
+      <button @click="login">Login</button>
+    </div>
   </section>
-    
 </template>
 
 <script>
@@ -78,6 +80,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  margin-top: 160px;
 }
 .login-form input {
   margin: 10px;
@@ -107,6 +110,7 @@ export default {
 @media (max-width: 500px){
   .login-form{
     margin: 10%;
+        margin-top: 150px;
   }
 }
 </style>

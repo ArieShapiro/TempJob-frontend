@@ -37,6 +37,7 @@
 .about-us-title {
   margin: 50px;
   color: #0caa41;
+  margin-top: 150px;
 }
 .about {
   text-align: center;
@@ -55,13 +56,14 @@
   .about-us-title {
     margin: 50px;
     color: #0caa41;
-    margin-top: 90px;
+    margin-top: 150px;
   }
 }
 @media (max-width: 400px) {
   .about-us-title {
     margin: 20px;
     font-size: 1.5em;
+    margin-top: 150px;
   }
   .about-content {
     margin: 0 20%;

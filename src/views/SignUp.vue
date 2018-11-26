@@ -68,6 +68,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  margin-top: 150px;
 }
 .sign-up-form p {
   color: red;
@@ -106,6 +107,7 @@ export default {
 @media (max-width: 500px) {
   .sign-up-form {
     margin: 10%;
+    margin-top: 150px;
   }
 }
 </style>

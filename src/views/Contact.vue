@@ -45,7 +45,7 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
-  margin: 70px 0 5px;
+  margin: 150px 0 5px;
   color: #0caa41;
 }
 .contact-icons {
@@ -133,9 +133,6 @@ h1 {
   .contact-icons {
     display: flex;
     justify-content: center;
-  }
-  .contact-form {
-    margin: 0 10% 30%;
   }
 }
 </style>
