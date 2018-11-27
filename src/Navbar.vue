@@ -255,7 +255,21 @@ html {
   color: white;
   margin-right: 5px;
 }
+.site-logo {
+  display: flex;
+  margin: 21px;
+}
+.site-logo h2 {
+  font-family: "Dancing Script";
+  color: #0caa41;
+  margin-top: 8px;
+  font-size: 1.9em;
+}
+.site-logo h2:hover{
+  cursor: pointer;
+}
 
+/*Makes the navbar the same on all devises without messing up the code*/
 @media (max-width: 1800px) {
   .fa-briefcase:before {
     font-size: 1.4em;
@@ -300,17 +314,17 @@ html {
   }
 }
 
-.site-logo {
-  display: flex;
-  margin: 21px;
+@media (max-width: 613px) {
+  .burger-and-logo, .burger-nav{
+    height: 77px;
+  }
+  .hamburger{
+    margin-top: 17px;
+  }
+  .site-logo{
+    margin-top: 10px;
+  }
 }
-.site-logo h2 {
-  font-family: "Dancing Script";
-  color: #0caa41;
-  margin-top: 8px;
-  font-size: 1.9em;
-}
-.site-logo h2:hover{
-  cursor: pointer;
-}
+
+
 </style>

@@ -4,8 +4,10 @@
     <div class="contact-icons">
       <div class="phone">
         <i class="fas fa-mobile-alt i"></i>
-        <h5>Call us at
-        04-8325877</h5>
+        <h5>
+          Call us at
+          04-8325877
+        </h5>
       </div>
       <div class="adress">
         <i class="fas fa-map-marker-alt i"></i>
@@ -17,17 +19,14 @@
         <h5>Email us at</h5>
         <h5>aryehshapiro@gmail.com</h5>
       </div>
-    </div> 
+    </div>
     <div class="contact-form">
-        <input class="name-input" type="text" placeholder="Name">
-        <input class="email-input" type="email" placeholder="Email">
-        <input class="message-input" type="text" placeholder="Message">  
-        <button disabled="disabled">Send</button>    
-    </div>  
-
-        
-
-  </section>    
+      <input class="name-input" type="text" placeholder="Name">
+      <input class="email-input" type="email" placeholder="Email">
+      <input class="message-input" type="text" placeholder="Message">
+      <button disabled="disabled">Send</button>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -35,9 +34,7 @@ export default {
   data() {
     return {};
   },
-  created() {
-    
-  }
+  created() {}
 };
 </script>
 
@@ -45,7 +42,7 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
-  margin: 150px 0 5px;
+  margin: 120px 0 5px;
   color: #0caa41;
 }
 .contact-icons {
@@ -71,24 +68,30 @@ h1 {
 }
 .phone i {
   color: teal;
+  cursor: pointer;
 }
 .phone i:hover {
   color: #18b3b3;
+  cursor: pointer;
 }
 .adress i {
   color: #ea4335;
+  cursor: pointer;
 }
 .adress i:hover {
   color: #eaa099;
+  cursor: pointer;
 }
 .email i {
   color: #234eb4;
+  cursor: pointer;
 }
 .email i:hover {
   color: #7d94cb;
+  cursor: pointer;
 }
 .contact-form {
-  margin: 40px auto;
+  margin: 10px auto;
   max-width: 350px;
   border: 1px solid gray;
   height: auto;
@@ -133,6 +136,11 @@ h1 {
   .contact-icons {
     display: flex;
     justify-content: center;
+  }
+}
+@media (max-width: 500px) {
+  .contact-form {
+    max-width: 70%;
   }
 }
 </style>
