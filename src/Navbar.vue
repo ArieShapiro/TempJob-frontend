@@ -2,50 +2,89 @@
   <section>
     <!--Mobile Burger Nav-->
     <div class="nav-cmp">
-
       <div class="burger-nav">
-
         <div class="burger-and-logo">
           <div class="site-logo">
             <i class="fas fa-briefcase" style="margin-top: 8px; font-size: 1.5em" @click="goHome"></i>
             <h2 @click="goHome">Temp Job</h2>
           </div>
 
-          <div v-if="loggedInStatusQuery" @click="viewProfile" class="hellow-user-mobile">Hello {{ loggedInProfileDataQuery.name }}!</div>
-          <div v-if="loggedInStatusQuery" @click="logout" class="logout-mobile"><i class="fas fa-power-off po"></i></div>
-          
-          <i class="fas fa-bars hamburger" @click="openBurgerBar"></i>
+          <div
+            v-if="loggedInStatusQuery"
+            @click="viewProfile"
+            class="hellow-user-mobile"
+          >Hello {{ loggedInProfileDataQuery.name }}!</div>
+          <div v-if="loggedInStatusQuery" @click="logout" class="logout-mobile">
+            <i class="fas fa-power-off po"></i>
+          </div>
+
+          <i v-if="burger" class="fas fa-bars hamburger" @click="toggleNavbar"></i>
+          <i v-if="xIcon" class="far fa-times-circle hamburger" @click="toggleNavbar"></i>
         </div>
 
-        <div class="responsive-bar-container opened animated slower" :class="{slideInRight: isResponsiveBarOpened, slideOutRight: navGo}">
-          <router-link to="/"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">Home</div></router-link>
-          <router-link to="/about"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">About</div></router-link>
-          <router-link to="/contact"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">Contact</div></router-link>
-          <router-link to="/sign-up"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">SignUp</div></router-link>
-          <router-link to="/login"><div class="burger-nav-element" :class="{opened: isResponsiveBarOpened}" @click="openBurgerBar">Login</div></router-link>
+        <div
+          class="responsive-bar-container animated slower"
+          :class="{fadeIn: true, fadeOut: false}"
+        >
+          <router-link to="/">
+            <div
+              class="burger-nav-element"
+              :class="{opened: isResponsiveBarOpened}"
+              @click="toggleNavbar"
+            >Home</div>
+          </router-link>
+          <router-link to="/about">
+            <div
+              class="burger-nav-element"
+              :class="{opened: isResponsiveBarOpened}"
+              @click="toggleNavbar"
+            >About</div>
+          </router-link>
+          <router-link to="/contact">
+            <div
+              class="burger-nav-element"
+              :class="{opened: isResponsiveBarOpened}"
+              @click="toggleNavbar"
+            >Contact</div>
+          </router-link>
+          <router-link to="/sign-up">
+            <div
+              class="burger-nav-element"
+              :class="{opened: isResponsiveBarOpened}"
+              @click="toggleNavbar"
+            >SignUp</div>
+          </router-link>
+          <router-link to="/login">
+            <div
+              class="burger-nav-element"
+              :class="{opened: isResponsiveBarOpened}"
+              @click="toggleNavbar"
+            >Login</div>
+          </router-link>
         </div>
-
       </div>
 
       <!--Normal-->
       <div class="navbar nav-cmp">
-
         <i class="fas fa-briefcase home-icon" @click="goHome"></i>
-        <router-link to="/" class="nav-element">Home</router-link> 
+        <router-link to="/" class="nav-element">Home</router-link>
         <router-link to="/about" class="nav-element">About</router-link>
-        <router-link to="/contact" class="nav-element">Contact</router-link>        
-        <router-link v-if="!loggedInStatusQuery" to="/sign-up" class="nav-element">SignUp</router-link> 
+        <router-link to="/contact" class="nav-element">Contact</router-link>
+        <router-link v-if="!loggedInStatusQuery" to="/sign-up" class="nav-element">SignUp</router-link>
         <router-link v-if="!loggedInStatusQuery" to="/login" class="nav-element">Login</router-link>
-        <div v-if="loggedInStatusQuery" @click="viewProfile" class="hellow-user">Hello {{ loggedInProfileDataQuery.name }}!</div>
-        <div v-if="loggedInStatusQuery" @click="logout" class="logout"><i class="fas fa-power-off"></i></div>
+        <div
+          v-if="loggedInStatusQuery"
+          @click="viewProfile"
+          class="hellow-user"
+        >Hello {{ loggedInProfileDataQuery.name }}!</div>
+        <div v-if="loggedInStatusQuery" @click="logout" class="logout">
+          <i class="fas fa-power-off"></i>
+        </div>
         <div class="empty-nav-element nav-cmp"></div>
-
       </div>
-
     </div>
 
     <router-view/>
-
   </section>
 </template>
 
@@ -56,17 +95,29 @@ import swal from "sweetalert";
 export default {
   data() {
     return {
+      burger: true,
+      xIcon: false,
       isResponsiveBarOpened: false,
       navGo: true
     };
   },
   methods: {
-    openBurgerBar() {
-      if (this.isResponsiveBarOpened === false) {
-        this.isResponsiveBarOpened = true;
-      }
-      // this.isResponsiveBarOpened = !this.isResponsiveBarOpened;
-      this.navGo = !this.navGo;
+    toggleNavbar() {
+      this.isResponsiveBarOpened = !this.isResponsiveBarOpened;
+      this.burger = !this.burger;
+      this.xIcon = !this.xIcon;
+
+      // if (this.isResponsiveBarOpened === false) {
+      //   this.isResponsiveBarOpened = true;
+      //   this.burger = false;
+      //   this.xIcon = true;
+      // } else {
+      //   this.isResponsiveBarOpened = false;
+      //   this.burger = true;
+      //   this.xIcon = false;
+      // }
+
+      // this.navGo = !this.navGo;
     },
     goHome() {
       this.$router.push("/");
@@ -140,9 +191,9 @@ html {
 }
 .hamburger {
   color: whitesmoke;
-    margin: 28px 18px;
-    font-size: 2.5em;
-    cursor: pointer;
+  margin: 28px 18px;
+  font-size: 2.5em;
+  cursor: pointer;
 }
 .burger-and-logo {
   display: flex;
@@ -158,6 +209,7 @@ html {
   border-bottom: 1px solid #fff;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 .opened {
   display: block;
@@ -265,7 +317,7 @@ html {
   margin-top: 8px;
   font-size: 1.9em;
 }
-.site-logo h2:hover{
+.site-logo h2:hover {
   cursor: pointer;
 }
 
@@ -315,16 +367,15 @@ html {
 }
 
 @media (max-width: 613px) {
-  .burger-and-logo, .burger-nav{
+  .burger-and-logo,
+  .burger-nav {
     height: 77px;
   }
-  .hamburger{
+  .hamburger {
     margin-top: 17px;
   }
-  .site-logo{
+  .site-logo {
     margin-top: 10px;
   }
 }
-
-
 </style>
