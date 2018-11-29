@@ -377,5 +377,8 @@ html {
   .site-logo {
     margin-top: 10px;
   }
+  .fa-briefcase{
+    display: none;
+  }
 }
 </style>
