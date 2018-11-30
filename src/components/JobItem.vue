@@ -7,10 +7,10 @@
                 <div><h2 class="job-loc">{{ job.location }}</h2></div>
             </div>
             <div>{{ job.createdAt }}</div>
-            <div v-if="isOpen" class="animated bounce" :class="{fadeOut: fadeOut}">
+            <div v-if="isOpen" class="animated fadeIn" :class="{fadeOut: fadeOut}">
                 <div class="description">{{ job.description}}</div>
                 <h3 v-if="isApplicationFormOpened" class="fill-in">Fill in your details to apply:</h3>
-                <div v-if="isApplicationFormOpened" class="application-form animated bounceIn">
+                <div v-if="isApplicationFormOpened" class="application-form animated fadeIn">
                     <input v-model="applicationFullName" type="text" @click="stopPropo" placeholder="Your full name" required>
                     <input v-model="applicationEmail" type="text" @click="stopPropo" placeholder="Your email" required>
                     <input v-model="aboutYourself" class="about-yourself" type="text" @click="stopPropo" placeholder="About youself, your experience, relavant links..." required>
@@ -42,16 +42,20 @@ export default {
   },
   methods: {
     descriptionToggle() {
+
       if (!this.isOpen) {
-        bus.$emit("jobCardClicked");
+        // bus.$emit("openJobCardClicked");
       }
+
       if (this.isOpen) {
         this.fadeOut = !this.fadeOut;
         setTimeout(() => {
           this.isOpen = !this.isOpen;
+          this.fadeOut = !this.fadeOut;
         }, 500);
         return;
       }
+
       this.isOpen = !this.isOpen;
     },
 
@@ -146,7 +150,7 @@ export default {
   },
 
   created() {
-    bus.$on("jobCardClicked", () => {
+    bus.$on("openJobCardClicked", () => {
       this.isOpen = false;
     });
   }
