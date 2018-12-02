@@ -112,7 +112,8 @@ input:focus {
     width: 155px;
   }
   .filter-conteiner {
-    margin-bottom: 60px;
+        margin-bottom: 77px;
+    margin-top: 60px;
   }
 }
 </style>

@@ -234,6 +234,7 @@ input.about-yourself {
     width: 100%;
     height: 35px;
     margin: 5px 0px;
+    padding-top: 6px;
   }
 
   input.about-yourself {

@@ -37,7 +37,7 @@
 .about-us-title {
   margin: 50px;
   color: #0caa41;
-  margin-top: 150px;
+  margin-top: 130px;
 }
 .about {
   text-align: center;

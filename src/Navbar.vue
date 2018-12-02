@@ -22,10 +22,7 @@
           <i v-if="xIcon" class="far fa-times-circle hamburger" @click="toggleNavbar"></i>
         </div>
 
-        <div
-          class="responsive-bar-container animated slower"
-          :class="{fadeIn: true, fadeOut: false}"
-        >
+        <div class="responsive-bar-container animated" :class="{fadeIn: true, fadeOut: false}">
           <router-link to="/">
             <div
               class="burger-nav-element"
@@ -106,18 +103,6 @@ export default {
       this.isResponsiveBarOpened = !this.isResponsiveBarOpened;
       this.burger = !this.burger;
       this.xIcon = !this.xIcon;
-
-      // if (this.isResponsiveBarOpened === false) {
-      //   this.isResponsiveBarOpened = true;
-      //   this.burger = false;
-      //   this.xIcon = true;
-      // } else {
-      //   this.isResponsiveBarOpened = false;
-      //   this.burger = true;
-      //   this.xIcon = false;
-      // }
-
-      // this.navGo = !this.navGo;
     },
     goHome() {
       this.$router.push("/");
@@ -210,6 +195,7 @@ html {
   position: relative;
   z-index: 1;
   text-align: center;
+  
 }
 .opened {
   display: block;
@@ -377,7 +363,7 @@ html {
   .site-logo {
     margin-top: 10px;
   }
-  .fa-briefcase{
+  .fa-briefcase {
     display: none;
   }
 }
