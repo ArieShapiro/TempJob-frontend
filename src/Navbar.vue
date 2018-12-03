@@ -300,7 +300,6 @@ html {
 .site-logo h2 {
   font-family: "Dancing Script";
   color: #0caa41;
-  margin-top: 8px;
   font-size: 1.9em;
 }
 .site-logo h2:hover {
@@ -355,10 +354,11 @@ html {
 @media (max-width: 613px) {
   .burger-and-logo,
   .burger-nav {
-    height: 77px;
+    height: 65px;
   }
   .hamburger {
-    margin-top: 17px;
+    margin-top: 14px;
+    font-size: 2em;
   }
   .site-logo {
     margin-top: 10px;

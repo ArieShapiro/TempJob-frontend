@@ -1,16 +1,21 @@
 <template>
-    <section class="filter-conteiner">
-        <div class="search">
-            <i class="fas fa-search"></i>
-            <input v-model="searchInput" @input="filterBySubject()" type="text" placeholder="Job Title, Keywords or Company">
-        </div>
-        <div class="search-field-button">
-          <div class="search location">
-            <input v-model="locationInput" type="text" placeholder="Location">
-          </div>
-          <button @click="filterByLocation()">Search</button>
-        </div>
-    </section>    
+  <section class="filter-conteiner">
+    <div class="search">
+      <i class="fas fa-search"></i>
+      <input
+        v-model="searchInput"
+        @input="filterBySubject()"
+        type="text"
+        placeholder="Job Title, Keywords or Company"
+      >
+    </div>
+    <div class="search-field-button">
+      <div class="search location">
+        <input v-model="locationInput" type="text" placeholder="Location">
+      </div>
+      <button @click="filterByLocation()">Search</button>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -108,12 +113,15 @@ input:focus {
 /* Mobile */
 @media (max-width: 500px) {
   .search input {
-    font-size: 10px;
-    width: 155px;
+    font-size: 14px;
+    width: 200px;
+  }
+  .search i {
+    margin-right: 3px;
   }
   .filter-conteiner {
-        margin-bottom: 77px;
-    margin-top: 60px;
+    margin-bottom: 77px;
+    margin-top: 47px;
   }
 }
 </style>
