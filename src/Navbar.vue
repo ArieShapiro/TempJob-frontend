@@ -301,6 +301,7 @@ html {
   font-family: "Dancing Script";
   color: #0caa41;
   font-size: 1.9em;
+  padding-top: 8px;
 }
 .site-logo h2:hover {
   cursor: pointer;
@@ -365,6 +366,9 @@ html {
   }
   .fa-briefcase {
     display: none;
+  }
+  .site-logo h2{
+    padding-top: 0;
   }
 }
 </style>
