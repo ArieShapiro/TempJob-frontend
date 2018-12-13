@@ -52,18 +52,16 @@
   color: #0fab44;
 }
 
-@media (min-width: 886px) {
+/* @media (max-width: 886px) {
   .about-us-title {
-    margin: 50px;
-    color: #0caa41;
-    margin-top: 150px;
+     margin-top: 95px; 
   }
-}
-@media (max-width: 400px) {
+} */
+@media (max-width: 613px) {
   .about-us-title {
     margin: 20px;
     font-size: 1.5em;
-    margin-top: 150px;
+    margin-top: 90px;
   }
   .about-content {
     margin: 0 20%;

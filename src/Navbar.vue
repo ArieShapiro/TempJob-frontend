@@ -370,5 +370,6 @@ html {
   .site-logo h2{
     padding-top: 0;
   }
+  
 }
 </style>

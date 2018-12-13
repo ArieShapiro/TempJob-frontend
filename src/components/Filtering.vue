@@ -1,5 +1,5 @@
 <template>
-  <section class="filter-conteiner">
+  <section class="filter-container">
     <div class="search">
       <i class="fas fa-search"></i>
       <input
@@ -49,7 +49,7 @@ h1 {
   font-size: 2em;
   margin: 10px;
 }
-.filter-conteiner {
+.filter-container {
   margin: 85px auto 20px;
   height: auto;
   display: flex;
@@ -57,7 +57,7 @@ h1 {
   position: relative;
   top: 46px;
 }
-.filter-conteiner button {
+.filter-container button {
   background-color: #0caa41;
   color: white;
   border: none;
@@ -110,6 +110,17 @@ input:focus {
   }
 }
 
+@media (max-width: 613px) {
+  .filter-container{
+    margin-top: 60px;
+  }
+}
+
+
+
+
+
+
 /* Mobile */
 @media (max-width: 500px) {
   .search input {
@@ -119,7 +130,7 @@ input:focus {
   .search i {
     margin-right: 3px;
   }
-  .filter-conteiner {
+  .filter-container {
     margin-bottom: 77px;
     margin-top: 47px;
   }
