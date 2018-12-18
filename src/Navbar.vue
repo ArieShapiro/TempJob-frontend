@@ -170,13 +170,13 @@ html {
 }
 .burger-nav {
   display: none;
-  height: 101px;
+  height: 65px;
   width: 100%;
   background-color: #404040;
 }
 .hamburger {
   color: whitesmoke;
-  margin: 28px 18px;
+  margin: 13px 18px;
   font-size: 2.5em;
   cursor: pointer;
 }
@@ -184,7 +184,7 @@ html {
   display: flex;
   justify-content: space-between;
   box-shadow: 0 14px 10px 0 rgba(0, 0, 0, 0.2);
-  height: 101px;
+  height: 65px;
 }
 .burger-nav-element {
   display: none;
@@ -295,7 +295,7 @@ html {
 }
 .site-logo {
   display: flex;
-  margin: 21px;
+  margin: 5px 21px 21px 16px;
 }
 .site-logo h2 {
   font-family: "Dancing Script";
