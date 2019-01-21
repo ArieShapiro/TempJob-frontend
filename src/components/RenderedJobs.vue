@@ -1,11 +1,13 @@
 <template>
     <section class="home-background">
       <div v-if="throbber" class="throbber"><i class="fa fa-refresh fa-spin"></i></div>
+
         <ul>
             <li v-for="(job,idx) in displayFilteredJobs" :key="idx">
                 <JobItem :job="job"></JobItem>
             </li>
         </ul>    
+        
     </section>    
 </template>
 
