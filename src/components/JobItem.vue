@@ -2,19 +2,26 @@
     <section class="rendered-job">
 
         <div  @click="descriptionToggle">
+
             <div><h1 class="job-title">{{ job.title }}</h1></div>
 
             <div class="company-location">
+
                 <div><h2>{{ job.company }}  <span>-</span> </h2></div>
                 <div><h2 class="job-loc">{{ job.location }}</h2></div>
+
             </div>
 
             <div>{{ job.createdAt }}</div>
 
             <div v-if="isOpen" class="animated fadeIn" :class="{fadeOut: fadeOut}">
+
               <div class="description">{{ job.description}}</div>
+
               <ApplicationForm v-if="isApplicationFormOpened" :job="job.id"></ApplicationForm>
-              <button v-if="!isApplicationFormOpened" @click="apply">Apply</button>
+
+              <button v-if="!isApplicationFormOpened" @click.stop="apply">Apply</button>
+
             </div>
 
         </div>
@@ -59,7 +66,6 @@ export default {
     },
 
     apply($event) {
-      $event.stopPropagation();
       this.isApplicationFormOpened = true;
     },
 

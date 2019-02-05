@@ -1,10 +1,10 @@
 <template>
   <div class="application-form animated fadeIn">
     <h3 class="fill-in">Fill in your details to apply:</h3>
-    <input v-model="applicationFullName" type="text" @click="stopPropo" placeholder="Your full name" required>
-    <input v-model="applicationEmail" type="text" @click="stopPropo" placeholder="Your email" required>
-    <input v-model="aboutYourself" class="about-yourself" type="text" @click="stopPropo" placeholder="About youself, your experience, relavant links..." required>
-    <button class="upload-cv-btn" @click="uploadCV">Upload your CV<i class="fas fa-file-upload cv-icon"></i></button>  
+    <input v-model="applicationFullName" type="text" @click.stop placeholder="Your full name" required>
+    <input v-model="applicationEmail" type="text" @click.stop placeholder="Your email" required>
+    <input v-model="aboutYourself" class="about-yourself" type="text" @click.stop placeholder="About youself, your experience, relavant links..." required>
+    <button class="upload-cv-btn" @click.stop="uploadCV">Upload your CV<i class="fas fa-file-upload cv-icon"></i></button>  
     <button @click="submitApplication" class="apply-btn">Submit Application</button>
   </div>
 </template>
@@ -23,11 +23,7 @@ export default {
     };
   },
   methods:{
-    stopPropo($event) {
-      $event.stopPropagation();
-    },
-    uploadCV($event) {
-      $event.stopPropagation();
+    uploadCV() {
     },
     submitApplication($event) {
       $event.stopPropagation();
